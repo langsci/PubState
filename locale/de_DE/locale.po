@@ -1,0 +1,33 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2022-01-26T17:47:21+00:00\n"
+"PO-Revision-Date: 2022-01-26T17:47:21+00:00\n"
+"Language: \n"
+
+msgid "plugins.generic.pubState.displayName"
+msgstr "PubState Plugin"
+
+msgid "plugins.generic.pubState.description"
+msgstr "Für die Möglichkeit hinzu den Status einer Publikation als Forthcoming, Published oder Superseded zu definieren."
+
+msgid "plugins.generic.pubState.fieldLabel"
+msgstr "Publikationsstatus"
+
+msgid "plugins.generic.pubState.fieldDexcription"
+msgstr "Publikationsstatus"
+
+msgid "plugins.generic.pubState.label.forthcoming"
+msgstr "Forthcoming"
+
+msgid "plugins.generic.pubState.label.published"
+msgstr "Published"
+
+msgid "plugins.generic.pubState.label.superseded"
+msgstr "Superseded"
