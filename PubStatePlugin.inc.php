@@ -56,10 +56,13 @@ class PubStatePlugin extends GenericPlugin
         $form = $args;
 
         if ($args->id == FORM_TITLE_ABSTRACT) {
-            $submission = $this->getCurrentSubmission();
+            $submission = $this->getCurrentSubmission($form->action);
+            
+            if (!$submission) return; // submission id could not be extracted
+
             $publication = $submission->getCurrentPublication();
             if (!$publication->getData('pubState')) {
-                $publication = Services::get('publication')->edit($publication, ['pubState' => 1], $request);
+                $publication = Services::get('publication')->edit($publication, ['pubState' => 1], Application::get()->getRequest());
             }
 
             $form->addField(new FieldSelect('pubState', [
@@ -94,18 +97,12 @@ class PubStatePlugin extends GenericPlugin
         return $pubStateLabel;
     }
 
-    function getCurrentSubmission() {
-        // extract submission ID from current request object
-        // we require this information to generate the request URL for our grid handler
-        // previously this was provided as request variable
-        // with OMP 3.2 this information is part of the URL path
-        // we need to extract it ourselves (at least I didn't find a fuction to do it from the plugin scope)
-        $request = Application::get()->getRequest();
+    function getCurrentSubmission($action) {
+        // extract submission ID from the action URL
         $matches = [];
-        preg_match('#index/(\d+)/(\d+)#',$request->getRequestPath(),$matches);
-        if (count($matches) == 3) {
+        preg_match('#submissions/(\d+)/publications#',$action,$matches);
+        if (count($matches) == 2) {
             $submissionId = (int)$matches[1];
-            //$stageId = (int)$matches[2];
         } else {
             return false;
         }
