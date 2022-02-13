@@ -40,12 +40,11 @@ class PubStatePlugin extends GenericPlugin
                         'type' => 'integer',
                         'apiSummary' => true,
                         'multilingual' => false,
-                        'validation' => ["in:".PUB_STATE_FORTHCOMING.",2,3"],
+                        'validation' => ["in:".PUB_STATE_FORTHCOMING.",".PUB_STATE_PUBLISHED.",".PUB_STATE_SUPERSEDED.""],
                         "default" => PUB_STATE_FORTHCOMING
                     ];
                     return false;
                 });
-                
             }
             return true;
         }
@@ -79,17 +78,14 @@ class PubStatePlugin extends GenericPlugin
 
     function getPubStateLabel($submission) {
 
-        if (!$submission) {
-            $submission = $this->getCurrentSubmission();
-        }
         $publication = $submission->getCurrentPublication();
 
         switch ($publication->getData('pubState')) {
             case PUB_STATE_FORTHCOMING:
-                $pubStateLabel = __('plugins.generic.pubState.label.forthcoming');
+                $pubStateLabel = __('plugins.generic.pubState.label.forthcoming').": ";
                 break;
             case PUB_STATE_SUPERSEDED:
-                $pubStateLabel = __('plugins.generic.pubState.label.superseded');
+                $pubStateLabel = __('plugins.generic.pubState.label.superseded').": ";
                 break;
             default:
                 $pubStateLabel = "";

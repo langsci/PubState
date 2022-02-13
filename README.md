@@ -5,7 +5,7 @@
 
 ## Description
 
-An OMP plugin to provide a field "Publication State" on the submission workflow tab "Publication" under "Title & Abstracts". This field is used by other plugins (as bookPage, seriesIndexPage catalogSearchPage) to label a publications state on the fontend.
+An OMP plugin to provide a field "Publication State" on the submission workflow tab "Publication" under "Title & Abstracts". This field is used by other plugins (as bookPage, seriesIndexPage catalogSearchPage) to label a publications state on the frontend.
 
 ## License
 
