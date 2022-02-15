@@ -7,6 +7,14 @@
 
 An OMP plugin to provide a field "Publication State" on the submission workflow tab "Publication" under "Title & Abstracts". This field is used by other plugins (as bookPage, seriesIndexPage catalogSearchPage) to label a publications state on the frontend.
 
+## Usage
+
+To style the "Forthcoming/Superseded" labels on the bookPage and CatalogSearch templates use the journal stylesheet and provide a "pubState" class:
+
+    .pubSate {
+        color: red;
+    }
+
 ## License
 
 Copyright (c) 2021 Language Science Press
