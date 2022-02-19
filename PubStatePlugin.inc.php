@@ -93,6 +93,26 @@ class PubStatePlugin extends GenericPlugin
         return $pubStateLabel;
     }
 
+    function getPubState($submission) {
+        $publication = $submission->getCurrentPublication();
+        return $publication->getData('pubState');
+    }
+
+    function loadStyleSheet($request, $templateMgr) {
+        $templateMgr->addStyleSheet(
+            'pubStatePluginStylesheet',
+            $request->getBaseUrl() . '/plugins/generic/pubState/css/pubStatePlugin.css',
+            array(
+                'priority' => STYLE_SEQUENCE_LAST
+            )
+        );
+        $templateMgr->setConstants([
+			'PUB_STATE_FORTHCOMING',
+			'PUB_STATE_PUBLISHED',
+            'PUB_STATE_SUPERSEDED'
+        ]);
+    }
+
     function getCurrentSubmission($action) {
         // extract submission ID from the action URL
         $matches = [];
