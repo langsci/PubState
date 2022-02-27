@@ -9,9 +9,13 @@ An OMP plugin to provide a field "Publication State" on the submission workflow 
 
 ## Usage
 
-To style the "Forthcoming/Superseded" labels on the bookPage and CatalogSearch templates use the journal stylesheet and provide a "pubState" class:
+To style the "Forthcoming/Superseded" labels on the bookPage and CatalogSearch templates you can use the journal stylesheet and provide te following classes:
 
-    .pubSate {
+    .pubState_forthcoming {
+        color: green;
+    }
+
+    .pubState_superseded {
         color: red;
     }
 
