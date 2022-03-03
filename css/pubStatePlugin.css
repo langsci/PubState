@@ -1,7 +1,6 @@
-.pubState_forthcoming {
-    color: green;
+.pubState_forthcoming, .pubState_superseded {
+    color: black !important;
+    vertical-align: super;
+    font-size: 66%;
 }
-
-.pubState_superseded {
-    color: red;
-}
+    
