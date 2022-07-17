@@ -54,6 +54,7 @@ class PubStatePlugin extends GenericPlugin
     function addFormField($hookName, $args) {
         $form = $args;
 
+        import('lib.pkp.classes.components.forms.publication.PKPTitleAbstractForm');
         if ($args->id == FORM_TITLE_ABSTRACT) {
             $submission = $this->getCurrentSubmission($form->action);
             
