@@ -32,7 +32,7 @@ class PubStatePlugin extends GenericPlugin
     {
 	$success = parent::register($category, $path, $mainContextId);
 	if (!Config::getVar('general', 'installed') || defined('RUNNING_UPGRADE')) return true;
-        if ($success)) {
+        if ($success) {
             if ($this->getEnabled($mainContextId)) {
                 HookRegistry::register('Form::config::before', array($this, 'addFormField'));
                 HookRegistry::register('Schema::get::publication', function($hookName, $args) {
